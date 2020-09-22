@@ -3,6 +3,8 @@
         <div class="box" id="ECharts_01"></div>
         <div class="box" id="ECharts_02"></div>
         <div class="box" id="ECharts_03"></div>
+        <div class="box" id="ECharts_04"></div>
+        <div class="box" id="ECharts_05"></div>
     </div>
 </template>
 
@@ -80,12 +82,12 @@
             //渐变色条形图
             GradientCategory() {
                 let myChart = this.$echarts.init(document.getElementById('ECharts_02'));
-                var dataAxis = ['点', '击', '柱', '子', '或', '者', '两', '指', '在', '触', '屏', '上', '滑', '动', '能', '够', '自', '动', '缩', '放'];
-                var data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220];
-                var yMax = 500;
-                var dataShadow = [];
+                let dataAxis = ['点', '击', '柱', '子', '或', '者', '两', '指', '在', '触', '屏', '上', '滑', '动', '能', '够', '自', '动', '缩', '放'];
+                let data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220];
+                let yMax = 500;
+                let dataShadow = [];
 
-                for (var i = 0; i < data.length; i++) {
+                for (let i = 0; i < data.length; i++) {
                     dataShadow.push(yMax);
                 }
 
@@ -169,7 +171,7 @@
                 };
 
                 // Enable data zoom when user click bar.
-                var zoomSize = 6;
+                let zoomSize = 6;
                 myChart.on('click', function (params) {
                     console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
                     myChart.dispatchAction({
@@ -229,11 +231,124 @@
 
                 ECharts_03.setOption(option);
             },
+            //条形、饼图联动
+            doubleCategory(v) {
+                let nam = [];
+                let val = [];
+                v.forEach(i => {
+                    nam.push(i.name);
+                    val.push(i.value);
+                });
+                let ECharts_04 = this.$echarts.init(document.getElementById("ECharts_04"));
+                let ECharts_05 = this.$echarts.init(document.getElementById("ECharts_05"));
+
+                let option_04 = {
+                    xAxis: {
+                        type: 'category',
+                        data: [...nam]
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: [...val],
+                        type: 'bar',
+                        showBackground: true,
+                        backgroundStyle: {
+                            color: 'rgba(220, 220, 220, 0.8)'
+                        }
+                    }]
+                };
+                let option_05 = {
+                    backgroundColor: '#2c343c',
+
+                    title: {
+                        text: 'Customized Pie',
+                        left: 'center',
+                        top: 20,
+                        textStyle: {
+                            color: '#ccc'
+                        }
+                    },
+
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    },
+
+                    visualMap: {
+                        show: false,
+                        min: 80,
+                        max: 600,
+                        inRange: {
+                            colorLightness: [3, 5]
+                        }
+                    },
+                    series: [
+                        {
+                            name: '访问来源',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '50%'],
+                            data: [...v].sort(function (a, b) {
+                                return a.value - b.value;
+                            }),
+                            roseType: 'radius',
+                            label: {
+                                color: 'rgba(255, 255, 255, 0.3)'
+                            },
+                            labelLine: {
+                                lineStyle: {
+                                    color: 'rgba(255, 255, 255, 0.3)'
+                                },
+                                smooth: 0.2,
+                                length: 10,
+                                length2: 20
+                            },
+                            itemStyle: {
+                                color: '#c23531',
+                                shadowBlur: 200,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            },
+
+                            animationType: 'scale',
+                            animationEasing: 'elasticOut',
+                            animationDelay: function (idx) {
+                                return Math.random() * 200;
+                            }
+                        }
+                    ]
+                };
+
+                ECharts_04.setOption(option_04);
+                ECharts_05.setOption(option_05);
+            },
         },
         mounted() {
+            let data1 = [
+                {name: 'wuhan', value: 100},
+                {name: 'jinzhou', value: 320},
+                {name: 'suizhou', value: 430},
+                {name: 'shanghai', value: 350},
+                {name: 'guangzhou', value: 120},
+            ];
+            let data2 = [
+                {name: 'w', value: 88},
+                {name: 'j', value: 98},
+                {name: 's', value: 36},
+                {name: 's', value: 65},
+                {name: 'g', value: 84},
+            ];
+
             this.drawCategory();
             this.GradientCategory();
             this.horizontalCategory();
+            this.doubleCategory(data1);
+            let m = new Promise((resolve, reject) => {
+                setInterval( resolve('success'),10000)
+            });
+            console.log(m)
+            // setInterval(this.doubleCategory(data2), 10000);
         }
     };
 </script>

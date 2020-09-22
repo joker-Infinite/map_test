@@ -8,16 +8,13 @@
                     :zoom="zoom"
                     :plugin="plugin"
                     :events="events"
-                    class="amap-demo"
-            >
+                    class="amap-demo">
                 <el-amap-marker
                         v-for="u in markers"
-                        :position="u.position"
-                />
+                        :position="u.position"/>
                 <el-amap-marker
                         :position="[121.5273285, 31.21515044]"
-                        :icon="icon"
-                />
+                        :icon="icon"/>
             </el-amap>
         </div>
     </div>
@@ -80,5 +77,5 @@
 </script>
 
 <style scoped>
-    
+
 </style>

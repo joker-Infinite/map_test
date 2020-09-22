@@ -18,7 +18,7 @@
           :position="i"
           :icon="icon"
           :events="markerEvents"
-        ></el-amap-marker>
+        />
       </el-amap>
     </div>
   </div>
