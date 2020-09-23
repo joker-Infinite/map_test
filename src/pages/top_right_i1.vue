@@ -82,7 +82,6 @@
                         height: 'auto',
                         left: '35px',
                         bottom: "30px"
-                        // left:'30px'
                     },
                     series: [{
                         data: [120, 200, 150, 80, 70, 110, 130],
