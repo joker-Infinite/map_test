@@ -2,6 +2,7 @@
   <div class="container">
     <el-button @click="$router.push('/mapDot')">mapDot</el-button>
     <el-button @click="$router.push('/ECharts')">ECharts</el-button>
+    <el-button @click="$router.push('/jingvis')">jingvis</el-button>
     <div id="map">
       <el-amap
         ref="map"
