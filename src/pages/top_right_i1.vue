@@ -319,7 +319,7 @@
                 display: inline-block;
                 width: 40%;
                 height: 15px;
-                bottom: 0;
+                bottom: -20px;
                 right: 0;
                 position: absolute;
             }
@@ -329,7 +329,6 @@
                 height: 10px;
                 display: inline-block;
                 border-radius: 100%;
-                background: red;
             }
 
             .block_l {
