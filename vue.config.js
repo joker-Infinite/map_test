@@ -4,7 +4,7 @@ module.exports = {
   },
   configureWebpack: {
     externals: {
-      AMap: "window.AMap", //加这个！！
+      AMap: "window.AMap",
       AMapUI: "AMapUI"
     }
   },

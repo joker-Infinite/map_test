@@ -51,9 +51,10 @@
 
 <style scoped lang="less">
     .container {
-        width: 100%;
-        height: 100%;
-        position: fixed;
+       /* width: 2560px;
+        height: 1440px;*/
+        width: 1920px;
+        height: 1080px;
         margin: 0;
         padding: 0;
         background: url("../assets/img/background.jpg") no-repeat;
@@ -61,7 +62,6 @@
         overflow: hidden;
 
         .box {
-            position: absolute;
             width: 97%;
             height: 95%;
             margin: 1.5% 1.5% 0;

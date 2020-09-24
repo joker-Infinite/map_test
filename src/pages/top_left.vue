@@ -437,7 +437,7 @@
                 display: inline-block;
                 width: 40%;
                 height: 0.9375em;
-                bottom: 0;
+                bottom: 0.625em;
                 right: 0;
                 position: absolute;
             }
