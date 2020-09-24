@@ -1,10 +1,16 @@
 <template>
-    <div id="ECharts"></div>
+    <div style="width: 100%;height: 100%">
+        <div id="ECharts" v-show="item ==0"></div>
+        <div id="ECharts_small1" v-show="item ==1"></div>
+    </div>
 </template>
 
 <script>
     export default {
         name: "barGraph",
+        props: {
+            item: Number
+        },
         data() {
             return {}
         },
@@ -101,8 +107,8 @@
                     grid: {
                         width: 'auto',
                         height: 'auto',
-                        left:'35px',
-                        bottom:"30px"
+                        left: '35px',
+                        bottom: "30px"
                         // left:'30px'
                     },
                     series: [{
@@ -123,13 +129,19 @@
             }
         },
         mounted() {
-            this.barInit();
+            this.$nextTick(_ => {
+                this.barInit();
+            });
         }
     }
 </script>
 
 <style scoped>
     #ECharts {
+        height: 100%;
+    }
+
+    #ECharts_small1 {
         height: 100%;
     }
 </style>

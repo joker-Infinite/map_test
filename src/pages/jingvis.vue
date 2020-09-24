@@ -6,19 +6,16 @@
                     <top_left></top_left>
                 </div>
                 <div class="top_center">
-                    <div class="top_center_map"></div>
+                    <div class="top_center_map">
+                        <center-map></center-map>
+                    </div>
                 </div>
                 <div class="top_right">
                     <top_right></top_right>
                 </div>
             </div>
             <div class="bottom">
-                <div class="bar_box" v-for="i in 10">
-                    <div class="title">{{i}}</div>
-                    <div class="con_bar">
-                        <bar-graph></bar-graph>
-                    </div>
-                </div>
+                <bottom-bar-graph></bottom-bar-graph>
             </div>
         </div>
     </div>
@@ -28,10 +25,12 @@
     import BarGraph from "./common/barGraph";
     import Top_left from "./top_left";
     import Top_right from "./top_right";
+    import BottomBarGraph from "./bottomBarGraph";
+    import CenterMap from "./centerMap";
 
     export default {
         name: "jingvis",
-        components: {Top_right, Top_left, BarGraph},
+        components: {CenterMap, BottomBarGraph, Top_right, Top_left, BarGraph},
         data() {
             return {
                 height: '',
@@ -110,10 +109,10 @@
 
                 .bar_box {
                     /*float: left;*/
-                    width: 9%;
-                    height: 85%;
+                    width: 9.5%;
+                    height: 90%;
                     overflow: hidden;
-                    margin: 20px 0 0;
+                    margin: 18px 0 0;
 
                     .title {
                         size: 12px;
@@ -125,11 +124,64 @@
                     }
 
                     .con_bar {
-                        width: 98.5%;
-                        height: 80%;
-                        border: 1px solid #38d;
-                        border-top: none;
+                        width: 100%;
+                        height: 100%;
+                        background: url("../assets/img/zijin_03.png") no-repeat;
+                        background-size: 100%;
+                        position: relative;
+                        /*border: 1px solid #38d;*/
+                        /*border-top: none;*/
                         /*box-shadow: 0 0 2px #38d inset;*/
+
+                        .con_bars {
+                            height: 95%;
+                            width: 100%;
+                        }
+
+                        .title_ECharts {
+                            width: 100%;
+                            height: 20%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+
+                        .title_ECharts > p {
+                            height: 100%;
+                            width: 100%;
+                            position: relative;
+                        }
+
+                        .title_ECharts > p > span:first-child {
+                            font-size: 0.75em;
+                            font-family: '幼圆';
+                            line-height: 4;
+                            padding-left: 1.25em;
+                            margin-left: 0.625em;
+                            color: white;
+                            font-weight: 700;
+                            background: url("../assets/img/icon2.png") no-repeat;
+                            background-size: 0.9375em;
+                        }
+
+                        .title_ECharts > p > .dot {
+                            font-size: 0.75em;
+                            color: white;
+                            font-family: '幼圆';
+                            display: inline-block;
+                            width: 50%;
+                            height: 0.9375em;
+                            bottom: -1em;
+                            right: 0;
+                            position: absolute;
+                        }
+
+                        .title_ECharts > p > .dot > i {
+                            width: 0.625em;
+                            height: 0.625em;
+                            display: inline-block;
+                            border-radius: 100%;
+                        }
                     }
                 }
             }
