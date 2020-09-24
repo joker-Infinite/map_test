@@ -287,10 +287,10 @@
                 };
                 let option_l = {
                     grid: {
-                        left: '3%',
-                        right: '8%',
-                        bottom: '3%',
-                        containLabel: true
+                        width: 'auto',
+                        height: 'auto',
+                        left: '35px',
+                        bottom: "30px"
                     },
                     xAxis: {
                         type: 'category',
@@ -420,7 +420,7 @@
                 /*box-shadow: 0 0 2px #38d inset;*/
 
                 .con_bars {
-                    height: 95%;
+                    height: 93%;
                     width: 100%;
 
                     #ECharts_small1 {

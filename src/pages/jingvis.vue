@@ -7,7 +7,9 @@
                 </div>
                 <div class="top_center">
                     <div class="top_center_map">
-                        <center-map></center-map>
+                        <div class="mask_s">
+                            <center-map></center-map>
+                        </div>
                     </div>
                 </div>
                 <div class="top_right">
@@ -88,6 +90,16 @@
                         height: 100%;
                         border: 1px solid #38d;
                         box-shadow: 0 0 10px #38d inset;
+                        position: relative;
+
+                        .mask_s {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 35%;
+                            overflow: hidden;
+                            border: 1px solid #38d;
+                            box-shadow: 0 0 200px #38d;
+                        }
                     }
                 }
 
