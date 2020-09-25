@@ -47,7 +47,7 @@
         },
         created() {
             this.axios.get('/api/user/list').then(r => {
-                console.log(r);
+                // console.log(r);
             })
         }
     };
