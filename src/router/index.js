@@ -8,30 +8,30 @@ import jingvis from "../pages/jingvis";
 Vue.use(VueRouter);
 
 const routes = [
-    {
-        path: "/",
-        name: "Home",
-        component: Home
-    },
-    {
-        path: "/mapDot",
-        name: "mapDot",
-        component: mapDot
-    },
-    {
-        path: "/ECharts",
-        name: "ECharts",
-        component: ECharts
-    },
-    {
-        path: "/jingvis",
-        name: "jingvis",
-        component: jingvis
-    }
+  {
+    path: "/",
+    name: "Home",
+    component: Home
+  },
+  {
+    path: "/mapDot",
+    name: "mapDot",
+    component: mapDot
+  },
+  {
+    path: "/ECharts",
+    name: "ECharts",
+    component: ECharts
+  },
+  {
+    path: "/jingvis",
+    name: "jingvis",
+    component: jingvis
+  }
 ];
 
 const router = new VueRouter({
-    routes
+  routes
 });
 
 export default router;

@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <div class="head"></div>
         <div class="box">
             <div class="top">
                 <div class="top_left">
@@ -35,9 +36,9 @@
         components: {CenterMap, BottomBarGraph, Top_right, Top_left, BarGraph},
         data() {
             return {
-                height: '',
-                width: ''
-            }
+                height: "",
+                width: ""
+            };
         },
         methods: {},
         mounted() {
@@ -45,14 +46,17 @@
             this.width = window.screen.width + "px";
         },
         created() {
+            this.axios.get('/api/user/list').then(r => {
+                console.log(r);
+            })
         }
-    }
+    };
 </script>
 
 <style scoped lang="less">
     .container {
-       /* width: 2560px;
-        height: 1440px;*/
+        /* width: 2560px;
+               height: 1440px;*/
         width: 1920px;
         height: 1080px;
         margin: 0;
@@ -61,9 +65,21 @@
         background-size: 100% 100%;
         overflow: hidden;
 
+        .head {
+            width: 100%;
+            height: 2.5em;
+            background: url("../assets/img/zijin2_01.png");
+            background-size: 100%;
+            text-align: center;
+            line-height: 2.5em;
+            font-weight: 800;
+            font-size: 30px;
+            color: white;
+        }
+
         .box {
             width: 97%;
-            height: 95%;
+            height: 90%;
             margin: 1.5% 1.5% 0;
 
             .top {
@@ -166,7 +182,7 @@
 
                         .title_ECharts > p > span:first-child {
                             font-size: 0.75em;
-                            font-family: '幼圆';
+                            font-family: "幼圆";
                             line-height: 4;
                             padding-left: 1.25em;
                             margin-left: 0.625em;
@@ -179,7 +195,7 @@
                         .title_ECharts > p > .dot {
                             font-size: 0.75em;
                             color: white;
-                            font-family: '幼圆';
+                            font-family: "幼圆";
                             display: inline-block;
                             width: 50%;
                             height: 0.9375em;
