@@ -64,7 +64,7 @@ export default {
       windows: [],
       window: "",
       events: {},
-      mapStyle: "amap://styles/blue"
+      mapStyle: "amap://styles/8cb6df918ee512eae9c9198c38a40c91"
     };
   },
   mounted() {

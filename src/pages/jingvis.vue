@@ -57,8 +57,11 @@
     .container {
         /* width: 2560px;
                height: 1440px;*/
-        width: 1920px;
-        height: 1080px;
+        /*  width: 1920px;
+          height: 1080px;*/
+        width: 100%;
+        height: 100%;
+        position: fixed;
         margin: 0;
         padding: 0;
         background: url("../assets/img/background.jpg") no-repeat;
@@ -67,20 +70,15 @@
 
         .head {
             width: 100%;
-            height: 2.5em;
-            background: url("../assets/img/zijin2_01.png");
+            height: 4em;
+            background: url("../assets/img/zijin2_01.png") no-repeat;
             background-size: 100%;
-            text-align: center;
-            line-height: 2.5em;
-            font-weight: 800;
-            font-size: 30px;
-            color: white;
         }
 
         .box {
             width: 97%;
             height: 90%;
-            margin: 1.5% 1.5% 0;
+            margin: 1em 1.5% 0;
 
             .top {
                 width: 100%;
