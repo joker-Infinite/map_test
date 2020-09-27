@@ -473,7 +473,9 @@ export default {
       display: inline-block;
       width: 40%;
       height: 0.9375em;
-      bottom: 0.625em;
+      bottom: 1.625em;
+      /*2k分辨率下 bottom：1.625em*/
+      /*1080分辨率下 bottom：0.625em*/
       right: 0;
       position: absolute;
     }
@@ -707,7 +709,9 @@ export default {
       display: inline-block;
       width: 40%;
       height: 0.9375em;
-      bottom: -0.5em;
+      bottom: 1em;
+      /*2k分辨率下 bottom：1em*/
+      /*1080分辨率下 bottom：-0.5em*/
       right: 0;
       position: absolute;
     }

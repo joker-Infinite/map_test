@@ -8,9 +8,9 @@
                 </div>
                 <div class="top_center">
                     <div class="top_center_map">
-                        <div class="mask_s">
-                            <center-map></center-map>
-                        </div>
+                        <!--                        <div class="mask_s">-->
+                        <center-map></center-map>
+                        <!--                        </div>-->
                     </div>
                 </div>
                 <div class="top_right">
@@ -55,22 +55,24 @@
 
 <style scoped lang="less">
     .container {
-        /* width: 2560px;
-               height: 1440px;*/
+        width: 2560px;
+        height: 1440px;
         /*  width: 1920px;
           height: 1080px;*/
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        margin: 0;
+        /*width: 100%;*/
+        /*height: 100%;*/
+        /*position: fixed;*/
         padding: 0;
         background: url("../assets/img/background.jpg") no-repeat;
         background-size: 100% 100%;
         overflow: hidden;
+        margin: auto;
 
         .head {
             width: 100%;
-            height: 4em;
+            height: 5.5em;
+            /*2k分辨率下 height:5.5em*/
+            /*1080分辨率下 height:4em*/
             background: url("../assets/img/zijin2_01.png") no-repeat;
             background-size: 100%;
         }
