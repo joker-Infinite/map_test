@@ -4,6 +4,7 @@ import Home from "../pages/home.vue";
 import mapDot from "../pages/mapDot.vue";
 import ECharts from "../pages/echarts_test";
 import jingvis from "../pages/jingvis";
+import gas from "../pages/gas";
 
 Vue.use(VueRouter);
 
@@ -27,7 +28,12 @@ const routes = [
     path: "/jingvis",
     name: "jingvis",
     component: jingvis
-  }
+  },
+  {
+    path: "/gas",
+    name: "gas",
+    component: gas
+  },
 ];
 
 const router = new VueRouter({
