@@ -2,7 +2,7 @@
     <div class="container">
         <div class="head"></div>
         <div class="box">
-<!--            <div class="left"></div>-->
+            <!--            <div class="left"></div>-->
             <div class="right">
                 <div class="top">
                     <div class="top_left">
@@ -49,9 +49,9 @@
             this.width = window.screen.width + "px";
         },
         created() {
-          /*  this.axios.get('/api/user/list').then(r => {
-                // console.log(r);
-            })*/
+            /*  this.axios.get('/api/user/list').then(r => {
+                  // console.log(r);
+              })*/
         }
     };
 </script>
@@ -228,6 +228,29 @@
                         }
                     }
                 }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1920px) {
+        .container {
+            width: 1920px;
+            height: 1080px;
+            margin: auto;
+
+            .head {
+                height: 4em;
+            }
+        }
+    }
+    @media screen and (min-width: 2560px) {
+        .container {
+            width: 2560px;
+            height: 1440px;
+            margin: auto;
+
+            .head {
+                height: 5.5em;
             }
         }
     }

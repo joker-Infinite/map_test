@@ -1,7 +1,7 @@
 <template>
     <div class="con">
-        <div class="top">
-
+        <div class="top" @mouseover="mouseHover('top_ECharts')">
+            <operations class="more_setting" @showOne="showOne"></operations>
             <div class="title_ECharts">
                 <p>
                     <span>四大板块现金流 >></span>
@@ -16,7 +16,8 @@
             <div class="block_r"></div>
             <div class="block_b"></div>
         </div>
-        <div class="center">
+        <div class="center" @mouseover="mouseHover('center_ECharts_i')">
+            <operations class="more_setting" @showOne="showOne"></operations>
             <div class="center_l">
                 <div class="small_title_ECharts">
                     <p>2018年利润贡献情况</p>
@@ -41,7 +42,8 @@
             <div class="block_r"></div>
             <div class="block_b"></div>
         </div>
-        <div class="bottom">
+        <div class="bottom" @mouseover="mouseHover('bottom_ECharts')">
+            <operations class="more_setting" @showOne="showOne"></operations>
             <div id="bottom_ECharts"></div>
             <div class="title_ECharts">
                 <p>
@@ -56,51 +58,39 @@
             <div class="block_r"></div>
             <div class="block_b"></div>
         </div>
+        <show-e-charts ref="showECharts"></show-e-charts>
     </div>
 </template>
 
 <script>
+    import Operations from "./common/operations";
+    import ShowECharts from "./common/showECharts";
+
     export default {
         name: "top_left",
+        components: {ShowECharts, Operations},
         data() {
-            return {};
+            return {
+                top_ECharts_Data: {},
+                center_ECharts_Data: {},
+                bottom_ECharts_Data: {},
+                options: {}
+            };
         },
         methods: {
+            showOne(v) {
+                this.$refs['showECharts'].openDialog(this.options);
+            },
             //正负图
             initECharts_bar() {
                 let top_ECharts = this.$echarts.init(
                     document.getElementById("top_ECharts")
                 );
-                let xAxisData = [];
-                let data1 = [];
-                let data2 = [];
 
-                for (let i = 0; i < 10; i++) {
-                    data1.push((Math.random() * 2).toFixed(2));
-                    data2.push(-Math.random().toFixed(2));
-                }
-                //166fae
-                let emphasisStyle = {
-                    itemStyle: {
-                        barBorderWidth: 1,
-                        shadowOffsetX: 0,
-                        shadowOffsetY: 0
-                    }
-                };
-
-                let option = {
-                    toolbox: {
-                        show: true,
-                        orient: 'vertical',
-                        feature: {
-                            saveAsImage: {
-                                show: true,
-                            }
-                        }
-                    },
+                let option = this.top_ECharts_Data = {
                     barWidth: 10, //设置柱状图的粗细
                     xAxis: {
-                        data: xAxisData,
+                        data: [],
                         axisLine: {
                             onZero: true,
                             lineStyle: {
@@ -142,17 +132,31 @@
                         show: true,
                         width: "auto",
                         height: "auto",
-                        left: "30px",
+                        left: "50px",
                         bottom: "30px"
-                        // left:'30px'
                     },
                     series: [
                         {
                             name: "bar",
                             type: "bar",
                             stack: "one",
-                            emphasis: emphasisStyle,
-                            data: data1,
+                            emphasis: {
+                                itemStyle: {
+                                    barBorderWidth: 1,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0
+                                }
+                            },
+                            data: ["1.33",
+                                "1.82",
+                                "0.13",
+                                "1.84",
+                                "0.85",
+                                "1.10",
+                                "0.29",
+                                "0.42",
+                                "1.09",
+                                "0.18"],
                             itemStyle: {
                                 normal: {
                                     barBorderRadius: [0, 0, 30, 30], //设置柱状图为圆角
@@ -165,8 +169,23 @@
                             name: "bar2",
                             type: "bar",
                             stack: "one",
-                            emphasis: emphasisStyle,
-                            data: data2,
+                            emphasis: {
+                                itemStyle: {
+                                    barBorderWidth: 1,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0
+                                }
+                            },
+                            data: [-0.77,
+                                -0.04,
+                                -0.22,
+                                -0.45,
+                                -0.88,
+                                -0.52,
+                                -0.34,
+                                -0.75,
+                                -0.91,
+                                -0.64],
                             itemStyle: {
                                 normal: {
                                     barBorderRadius: [30, 30, 0, 0], //设置柱状图为圆角
@@ -188,7 +207,7 @@
                 let center_ECharts_i2 = this.$echarts.init(
                     document.getElementById("center_ECharts_i2")
                 );
-                let option = {
+                let option = this.center_ECharts_Data = {
                     series: [
                         {
                             type: "pie",
@@ -246,7 +265,7 @@
                 let bottom_ECharts = this.$echarts.init(
                     document.getElementById("bottom_ECharts")
                 );
-                let option = {
+                let option = this.bottom_ECharts_Data = {
                     barWidth: 10,
                     grid: {
                         show: true,
@@ -417,7 +436,18 @@
                     ]
                 };
                 bottom_ECharts.setOption(option);
-            }
+            },
+            mouseHover(v) {
+                if (v == 'top_ECharts') {
+                    this.options = this.top_ECharts_Data;
+                }
+                if (v == 'center_ECharts_i') {
+                    this.options = this.center_ECharts_Data;
+                }
+                if (v == 'bottom_ECharts') {
+                    this.options = this.bottom_ECharts_Data;
+                }
+            },
         },
         mounted() {
             this.initECharts_bar();
@@ -533,6 +563,10 @@
                 background: #00b8fe;
                 z-index: 999;
             }
+        }
+
+        .top:hover .more_setting {
+            display: block;
         }
 
         .center {
@@ -672,6 +706,10 @@
             }
         }
 
+        .center:hover .more_setting {
+            display: block;
+        }
+
         .bottom {
             width: 100%;
             height: 30%;
@@ -768,6 +806,51 @@
                 height: 0.1875em;
                 background: #00b8fe;
                 z-index: 999;
+            }
+        }
+
+        .bottom:hover .more_setting {
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: 1920px) and (max-width: 2560px) {
+        .con {
+            .top {
+                .title_ECharts > p > .dot {
+                    bottom: 0.625em;
+                    /*2k分辨率下 bottom：1.625em*/
+                    /*1080分辨率下 bottom：0.625em*/
+                }
+            }
+
+            .bottom {
+                .title_ECharts > p > .dot {
+                    bottom: -0.5em;
+                    /*2k分辨率下 bottom：1em*/
+                    /*1080分辨率下 bottom：-0.5em*/
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 2560px) {
+        .con {
+            .top {
+
+                .title_ECharts > p > .dot {
+                    bottom: 1.625em;
+                    /*2k分辨率下 bottom：1.625em*/
+                    /*1080分辨率下 bottom：0.625em*/
+                }
+            }
+
+            .bottom {
+                .title_ECharts > p > .dot {
+                    bottom: 1em;
+                    /*2k分辨率下 bottom：1em*/
+                    /*1080分辨率下 bottom：-0.5em*/
+                }
             }
         }
     }
