@@ -1,60 +1,62 @@
 <template>
     <div style="height: 100%;width: 100%">
         <div class="con">
-            <div class="ECharts_box">
-                <div class="time_title">
-                    <div class="left">
-                        <span class="text_icon">从</span>
-                        <el-date-picker
-                                v-model="startTime"
-                                :picker-options="startOptions"
-                                type="date"
-                                value-format="yyyy-MM-dd"
-                                format="yyyy-MM-dd"></el-date-picker>
-                        <span class="text_icon">到</span>
-                        <el-date-picker
-                                v-model="endTime"
-                                :picker-options="endOptions"
-                                type="date"
-                                value-format="yyyy-MM-dd"
-                                format="yyyy-MM-dd"></el-date-picker>
-                    </div>
-                    <div class="right">
-                        <el-button @click="click_picker('Y')">年</el-button>
-                        <el-button @click="click_picker('M')">月</el-button>
-                        <el-button @click="click_picker('D')">日</el-button>
-                    </div>
-                </div>
-                <div class="ECharts">
-                    <div class="ECharts_left">
-                        <div class="con_bar">
-                            <div class="title_ECharts">
-                                <p>
-                                    <span>四大板块现金流 >></span>
-                                    <span class="dot"><i style="background: #3ea2ff"></i> 收入<i
-                                            style="background: #d285fd"></i> 流出</span>
-                                </p>
-                            </div>
-                            <div class="con_bars">
-                                <div id="ECharts_gas_i1"></div>
-                            </div>
+            <div class="background_img">
+                <div class="ECharts_box">
+                    <div class="time_title">
+                        <div class="left">
+                            <span class="text_icon">从</span>
+                            <el-date-picker
+                                    v-model="startTime"
+                                    :picker-options="startOptions"
+                                    type="date"
+                                    value-format="yyyy-MM-dd"
+                                    format="yyyy-MM-dd"></el-date-picker>
+                            <span class="text_icon">到</span>
+                            <el-date-picker
+                                    v-model="endTime"
+                                    :picker-options="endOptions"
+                                    type="date"
+                                    value-format="yyyy-MM-dd"
+                                    format="yyyy-MM-dd"></el-date-picker>
+                        </div>
+                        <div class="right">
+                            <el-button @click="click_picker('Y')">年</el-button>
+                            <el-button @click="click_picker('M')">月</el-button>
+                            <el-button @click="click_picker('D')">日</el-button>
                         </div>
                     </div>
-                    <div class="ECharts_right">
-                        <div class="con_bar">
-                            <div class="title_ECharts">
-                                <p>
-                                    <span>四大板块现金流 >></span>
-                                </p>
+                    <div class="ECharts">
+                        <div class="ECharts_left">
+                            <div class="con_bar">
+                                <div class="title_ECharts">
+                                    <p>
+                                        <span>四大板块现金流 >></span>
+                                        <span class="dot"><i style="background: #3ea2ff"></i> 收入<i
+                                                style="background: #d285fd"></i> 流出</span>
+                                    </p>
+                                </div>
+                                <div class="con_bars">
+                                    <div id="ECharts_gas_i1"></div>
+                                </div>
                             </div>
-                            <div class="con_bars">
-                                <div id="ECharts_gas_i2"></div>
-                            </div>
-                            <div class="bottom_bar">
-                                <div style="height: 20px;color: white" v-for="i in 7">
-                                    <i style="background: white;width: 0.625em;
+                        </div>
+                        <div class="ECharts_right">
+                            <div class="con_bar">
+                                <div class="title_ECharts">
+                                    <p>
+                                        <span>四大板块现金流 >></span>
+                                    </p>
+                                </div>
+                                <div class="con_bars">
+                                    <div id="ECharts_gas_i2"></div>
+                                </div>
+                                <div class="bottom_bar">
+                                    <div style="height: 20px;color: white" v-for="i in 7">
+                                        <i style="background: white;width: 0.625em;
                             height: 0.625em;border-radius: 100%;display: inline-block"></i>
-                                    第{{i}}项
+                                        第{{i}}项
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -338,11 +340,19 @@
 
 <style scoped lang="less">
     .con {
-        width: 1000px;
-        height: 500px;
-        background: rgba(11, 66, 141, 0.8);
+        width: 1200px;
+        height: 700px;
+        background: url("../assets/img/bg.jpg") no-repeat;
+        background-size: 100%;
         margin: auto;
-        padding: 100px;
+
+        .background_img {
+            width: 1000px;
+            height: 500px;
+            padding: 100px;
+            background: url("../assets/img/box1.png") no-repeat;
+            background-size: 100%;
+        }
 
         .ECharts_box {
             width: 100%;
@@ -382,20 +392,25 @@
                     float: left;
 
                     .con_bar {
-                        width: 100%;
+                        width: 98%;
                         height: 100%;
                         position: relative;
+                        background: url("../assets/img/box2.png") no-repeat;
+                        background-size: 100%;
+                        overflow: hidden;
                         /*border: 1px solid #38d;*/
                         /*border-top: none;*/
                         /*box-shadow: 0 0 2px #38d inset;*/
 
                         .con_bars {
-                            height: 93%;
-                            width: 100%;
+                            height: 85%;
+                            width: 95%;
+                            margin-top: 5%;
+                            margin-left: 5%;
 
                             #ECharts_gas_i1 {
                                 width: 100%;
-                                height: 100%;
+                                height: 95%;
                             }
                         }
 
@@ -403,7 +418,7 @@
                             width: 100%;
                             height: 20%;
                             position: absolute;
-                            top: 0;
+                            top: 1em;
                             left: 0;
                         }
 
@@ -452,20 +467,25 @@
                     float: right;
 
                     .con_bar {
-                        width: 100%;
+                        width: 98%;
                         height: 100%;
                         position: relative;
+                        background: url("../assets/img/box2.png") no-repeat;
+                        background-size: 100%;
+                        overflow: hidden;
                         /*border: 1px solid #38d;*/
                         /*border-top: none;*/
                         /*box-shadow: 0 0 2px #38d inset;*/
 
                         .con_bars {
-                            height: 93%;
-                            width: 100%;
+                            height: 85%;
+                            width: 95%;
+                            margin-top: 5%;
+                            margin-left: 5%;
 
                             #ECharts_gas_i2 {
                                 width: 100%;
-                                height: 100%;
+                                height: 95%;
                             }
                         }
 
@@ -473,7 +493,7 @@
                             width: 100%;
                             height: 20%;
                             position: absolute;
-                            top: 0;
+                            top: 1em;
                             left: 0;
                         }
 
@@ -518,7 +538,7 @@
                             width: 100%;
                             height: 20px;
                             position: absolute;
-                            bottom: 8%;
+                            bottom: 15%;
                             left: 0;
                             display: flex;
                             flex-direction: row;
