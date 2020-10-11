@@ -434,14 +434,105 @@
                     document.getElementById("rr_in")
                 );
 
-                rr_if.setOption(option);
-                rr_is.setOption(option);
-                rr_it.setOption(option);
-                rr_ifo.setOption(option);
-                rr_ifi.setOption(option);
-                rr_isi.setOption(option);
-                rr_ie.setOption(option);
-                rr_in.setOption(option);
+                let option_ = {
+                    barWidth: 5, //设置柱状图的粗细
+                    title: {
+                        text: '  {b|     XXX}',
+                        show: true,
+                        textAlign: 'right',
+                        x: 'right',
+                        y: 'top',
+                        textStyle: {
+                            fontFamily: '幼圆',
+                            lineHeight: 40,
+                            rich: {
+                                a: {
+                                    color: '#FFF',
+                                    fontSize: '15',
+                                    height: 15,
+                                    width: 15,
+                                    backgroundColor: {
+                                        image: require('../../assets/img/icon2.png')
+                                    }
+                                },
+                                b: {
+                                    color: '#38d',
+                                    fontSize: '20',
+                                    fontFamily: '幼圆',
+                                    fontWeight: 700,
+                                    height: 15,
+                                    width: 15,
+                                }
+                            }
+                        }
+                    },
+                    xAxis: [
+                        {
+                            type: "category",
+                            data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                            axisTick: {
+                                //坐标轴刻度
+                                show: false
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: "#fff"
+                                }
+                            }
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: "value",
+                            splitLine: {
+                                show: false
+                            },
+                            axisTick: {
+                                //坐标轴刻度
+                                show: false
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: "#fff"
+                                }
+                            }
+                        }
+                    ],
+                    grid: {
+                        width: "auto",
+                        height: "auto",
+                        left: "35px",
+                        bottom: "30px"
+                    },
+                    series: [
+                        {
+                            data: [120, 200, 150, 80, 70, 110, 130],
+                            type: "bar",
+                            itemStyle: {
+                                normal: {
+                                    barBorderRadius: [30, 30, 0, 0], //设置柱状图为圆角
+                                    color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                        {offset: 1, color: "#b038ff"},
+                                        {offset: 0.5, color: "#a883ff"},
+                                        {offset: 0, color: "#A2ccff"}
+                                    ])
+                                }
+                            },
+                            labelLine: {
+                                show: false
+                            }
+                        }
+                    ]
+                };
+
+                rr_if.setOption(option_);
+                rr_is.setOption(option_);
+                rr_it.setOption(option_);
+                rr_ifo.setOption(option_);
+                rr_ifi.setOption(option_);
+                rr_isi.setOption(option_);
+                rr_ie.setOption(option_);
+                rr_in.setOption(option_);
             }
         },
         mounted() {
