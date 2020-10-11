@@ -4,6 +4,9 @@
     <el-button @click="$router.push('/ECharts')">ECharts</el-button>
     <el-button @click="$router.push('/jingvis')">jingvis</el-button>
     <el-button @click="$router.push('/gas')">gas</el-button>
+    <el-button @click="$router.push('/gas_')">gas_</el-button>
+    <el-button @click="$router.push('/intAndOut')">intAndOut</el-button>
+    <el-button @click="$router.push('/unkonw')">unkonw</el-button>
     <div id="map">
       <el-amap
         ref="map"

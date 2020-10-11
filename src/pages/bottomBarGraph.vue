@@ -2,15 +2,6 @@
   <div class="bottom_box">
     <div class="bar_box">
       <div class="con_bar">
-        <div class="title_ECharts">
-          <p>
-            <span>四大板块现金流 >></span>
-            <span class="dot">
-              <i style="background: #3ea2ff"></i> 收入
-              <i style="background: #d285fd"></i> 流出
-            </span>
-          </p>
-        </div>
         <div class="con_bars">
           <div id="ECharts_small1"></div>
         </div>
@@ -18,15 +9,6 @@
     </div>
     <div class="bar_box">
       <div class="con_bar">
-        <div class="title_ECharts">
-          <p>
-            <span>四大板块现金流 >></span>
-            <span class="dot">
-              <i style="background: #3ea2ff"></i> 收入
-              <i style="background: #d285fd"></i> 流出
-            </span>
-          </p>
-        </div>
         <div class="con_bars">
           <div id="ECharts_small2"></div>
         </div>
@@ -34,15 +16,6 @@
     </div>
     <div class="bar_box">
       <div class="con_bar">
-        <div class="title_ECharts">
-          <p>
-            <span>四大板块现金流 >></span>
-            <span class="dot">
-              <i style="background: #3ea2ff"></i> 收入
-              <i style="background: #d285fd"></i> 流出
-            </span>
-          </p>
-        </div>
         <div class="con_bars">
           <div id="ECharts_small3"></div>
         </div>
@@ -50,15 +23,6 @@
     </div>
     <div class="bar_box">
       <div class="con_bar">
-        <div class="title_ECharts">
-          <p>
-            <span>四大板块现金流 >></span>
-            <span class="dot">
-              <i style="background: #3ea2ff"></i> 收入
-              <i style="background: #d285fd"></i> 流出
-            </span>
-          </p>
-        </div>
         <div class="con_bars">
           <div id="ECharts_small4"></div>
         </div>
@@ -66,15 +30,6 @@
     </div>
     <div class="bar_box">
       <div class="con_bar">
-        <div class="title_ECharts">
-          <p>
-            <span>四大板块现金流 >></span>
-            <span class="dot">
-              <i style="background: #3ea2ff"></i> 收入
-              <i style="background: #d285fd"></i> 流出
-            </span>
-          </p>
-        </div>
         <div class="con_bars">
           <div id="ECharts_small5"></div>
         </div>
@@ -82,15 +37,6 @@
     </div>
     <div class="bar_box">
       <div class="con_bar">
-        <div class="title_ECharts">
-          <p>
-            <span>四大板块现金流 >></span>
-            <span class="dot">
-              <i style="background: #3ea2ff"></i> 收入
-              <i style="background: #d285fd"></i> 流出
-            </span>
-          </p>
-        </div>
         <div class="con_bars">
           <div id="ECharts_small6"></div>
         </div>
@@ -98,15 +44,6 @@
     </div>
     <div class="bar_box">
       <div class="con_bar">
-        <div class="title_ECharts">
-          <p>
-            <span>四大板块现金流 >></span>
-            <span class="dot">
-              <i style="background: #3ea2ff"></i> 收入
-              <i style="background: #d285fd"></i> 流出
-            </span>
-          </p>
-        </div>
         <div class="con_bars">
           <div id="ECharts_small7"></div>
         </div>
@@ -114,15 +51,6 @@
     </div>
     <div class="bar_box">
       <div class="con_bar">
-        <div class="title_ECharts">
-          <p>
-            <span>四大板块现金流 >></span>
-            <span class="dot">
-              <i style="background: #3ea2ff"></i> 收入
-              <i style="background: #d285fd"></i> 流出
-            </span>
-          </p>
-        </div>
         <div class="con_bars">
           <div id="ECharts_small8"></div>
         </div>
@@ -130,15 +58,6 @@
     </div>
     <div class="bar_box">
       <div class="con_bar">
-        <div class="title_ECharts">
-          <p>
-            <span>四大板块现金流 >></span>
-            <span class="dot">
-              <i style="background: #3ea2ff"></i> 收入
-              <i style="background: #d285fd"></i> 流出
-            </span>
-          </p>
-        </div>
         <div class="con_bars">
           <div id="ECharts_small9"></div>
         </div>
@@ -146,15 +65,6 @@
     </div>
     <div class="bar_box">
       <div class="con_bar">
-        <div class="title_ECharts">
-          <p>
-            <span>四大板块现金流 >></span>
-            <span class="dot">
-              <i style="background: #3ea2ff"></i> 收入
-              <i style="background: #d285fd"></i> 流出
-            </span>
-          </p>
-        </div>
         <div class="con_bars">
           <div id="ECharts_small10"></div>
         </div>
@@ -202,10 +112,36 @@ export default {
         document.getElementById("ECharts_small10")
       );
       let option = {
-        // title: {
-        //     text: '无x，y轴线及刻度线',
-        //     subtext: '柱形图圆角'
-        // },
+        title: {
+          text: ' {a|     动态数据}',
+          show: true,
+          textStyle: {
+            fontFamily: '幼圆',
+            lineHeight:20,
+            rich: {
+              a: {
+                color: '#FFF',
+                fontSize: '12',
+                height: 15,
+                width: 15,
+                backgroundColor: {
+                  image: require('../assets/img/icon2.png')
+                }
+              },
+            }
+          }
+        },
+        legend: {
+          data: ['bar', 'bar2'],
+          icon: "circle",
+          textStyle: {
+            color: '#FFF'
+          },
+          itemWidth: 10,
+          itemHeight: 10,
+          right: 20,
+          top: 25
+        },
         barWidth: 5, //设置柱状图的粗细
         xAxis: [
           {
@@ -317,6 +253,36 @@ export default {
         ]
       };
       let option_l = {
+        title: {
+          text: ' {a|     动态数据}',
+          show: true,
+          textStyle: {
+            fontFamily: '幼圆',
+            lineHeight:20,
+            rich: {
+              a: {
+                color: '#FFF',
+                fontSize: '12',
+                height: 15,
+                width: 15,
+                backgroundColor: {
+                  image: require('../assets/img/icon2.png')
+                }
+              },
+            }
+          }
+        },
+        legend: {
+          data: ['邮件', '广告'],
+          icon: "circle",
+          textStyle: {
+            color: '#FFF'
+          },
+          itemWidth: 10,
+          itemHeight: 10,
+          right: 5,
+          top: 20
+        },
         grid: {
           width: "auto",
           height: "auto",
@@ -364,7 +330,7 @@ export default {
         },
         series: [
           {
-            name: "邮件营销",
+            name: "邮件",
             type: "line",
             stack: "总量",
             color: "#29fffa",
@@ -380,7 +346,7 @@ export default {
             data: [120, 132, 101, 134, 90, 230, 210]
           },
           {
-            name: "联盟广告",
+            name: "广告",
             type: "line",
             stack: "总量",
             color: "#fe5100",

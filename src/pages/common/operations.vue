@@ -14,7 +14,9 @@
         },
         methods: {
             operations(v) {
-                this.$emit('showOne', true);
+                if (v === 'focus') {
+                    this.$emit('showOne', true);
+                }
             }
         }
     }

@@ -6,6 +6,9 @@ import ECharts from "../pages/echarts_test";
 import jingvis from "../pages/jingvis";
 import gas from "../pages/gas";
 import showECharts from "../pages/common/showECharts"
+import intAndOut from "../pages/secondaryPage/intAndOut";
+import gas_ from "../pages/secondaryPage/gas_";
+import unkonw from "../pages/secondaryPage/unkonw";
 
 Vue.use(VueRouter);
 
@@ -36,9 +39,22 @@ const routes = [
         component: gas
     },
     {
+        path: "/gas_",
+        name: "gas_",
+        component: gas_
+    },
+    {
         path: "/showECharts",
         name: "showECharts",
         component: showECharts
+    }, {
+        path: "/intAndOut",
+        name: "intAndOut",
+        component: intAndOut
+    },{
+        path: "/unkonw",
+        name: "unkonw",
+        component: unkonw
     },
 ];
 
