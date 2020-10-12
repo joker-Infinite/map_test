@@ -28,11 +28,12 @@
             change(v) {
                 let con = document.getElementsByClassName('show')[0];
                 if (v === 'right') {
-                    this.i++;
+                    this.i += 2;
                     con.style.marginLeft = -300 * this.i + "px";
+                    console.log(con.style.marginLeft);
                 }
                 if (v === 'left') {
-                    this.i--;
+                    this.i -= 2;
                     con.style.marginLeft = -300 * this.i + "px";
                 }
                 if (this.i !== 0) {
@@ -44,7 +45,7 @@
                 if (this.i === 0) {
                     this.disabledRight = false;
                 }
-                if (this.i === 7) {
+                if (this.i === 6) {
                     this.disabledRight = true;
                 }
             }
@@ -54,7 +55,7 @@
 
 <style scoped lang="less">
     .container {
-        width: 900px;
+        width: 1200px;
         height: 300px;
         overflow: hidden;
         background: #191644;
@@ -62,6 +63,7 @@
         .show {
             width: 3000px;
             height: 300px;
+            transition: linear .5s;
         }
     }
 </style>

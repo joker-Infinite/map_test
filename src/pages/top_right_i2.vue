@@ -218,8 +218,9 @@
           ],
           grid: {
             width: "auto",
-            height: "auto",
-            left: "50px"
+            height: "70%",
+            left: "50px",
+            top:'20%'
           },
           series: [
             {
