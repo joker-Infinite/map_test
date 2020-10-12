@@ -9,6 +9,7 @@ import showECharts from "../pages/common/showECharts"
 import intAndOut from "../pages/secondaryPage/intAndOut";
 import gas_ from "../pages/secondaryPage/gas_";
 import unkonw from "../pages/secondaryPage/unkonw";
+import showBottomECharts from "../pages/common/showBottomECharts";
 
 Vue.use(VueRouter);
 
@@ -51,10 +52,14 @@ const routes = [
         path: "/intAndOut",
         name: "intAndOut",
         component: intAndOut
-    }*/,{
+    },*/{
         path: "/unkonw",
         name: "unkonw",
         component: unkonw
+    },{
+        path: "/showBottomECharts",
+        name: "showBottomECharts",
+        component: showBottomECharts
     },
 ];
 
