@@ -45,6 +45,8 @@
                                     <div>
                                         <div id="rr_ifo"></div>
                                     </div>
+                                    <div class="horizontal"></div>
+                                    <div class="vertical"></div>
                                 </div>
                             </div>
                             <div class="bottom">
@@ -64,6 +66,8 @@
                                     <div>
                                         <div id="rr_in"></div>
                                     </div>
+                                    <div class="horizontal"></div>
+                                    <div class="vertical"></div>
                                 </div>
                             </div>
                         </div>
@@ -552,7 +556,7 @@
         .background_img {
             width: 1200px;
             height: 650px;
-            /*background: url("../../assets/img/box1.png") no-repeat;*/
+            background: url("../../assets/img/head.png") no-repeat;
             background-size: 100%;
         }
 
@@ -574,14 +578,33 @@
                         display: inline-block;
                         width: 40px;
                         text-align: center;
-                        color: white;
+                        color: #216db8;
                     }
+                }
+
+                .left /deep/ .el-date-editor > .el-input__inner {
+                    border-radius: 0;
+                    background-color: #191644;
+                    border: 1px solid #216db8;
+                    color: #3f69d2;
+                }
+
+                .left /deep/ .el-date-editor > .el-input__prefix {
+                    border-radius: 0;
+                    color: #3f69d2;
                 }
 
                 .right {
                     width: 40%;
                     height: 100%;
                     float: right;
+                }
+
+                .right /deep/ .el-button {
+                    border-radius: 0;
+                    background-color: #191644;
+                    border: 1px solid #216db8;
+                    color: #3f69d2;
                 }
             }
 
@@ -600,9 +623,10 @@
                         border: 1px solid #38d;
 
                         .ll {
-                            width: 40%;
+                            width: 39.8%;
                             height: 100%;
                             float: left;
+                            border-right: 1px solid #38d;
 
                             #llt_ {
                                 width: 100%;
@@ -618,6 +642,31 @@
                             flex-direction: row;
                             flex-wrap: wrap;
                             justify-content: flex-start;
+                            position: relative;
+
+                            .horizontal {
+                                position: absolute;
+                                height: 1px;
+                                width: 100%;
+                                background: #3388dd;
+                                top: 0;
+                                left: 0;
+                                bottom: 0;
+                                right: 0;
+                                margin: auto;
+                            }
+
+                            .vertical {
+                                position: absolute;
+                                height: 100%;
+                                width: 1px;
+                                background: #3388dd;
+                                top: 0;
+                                left: 0;
+                                bottom: 0;
+                                right: 0;
+                                margin: auto;
+                            }
                         }
 
                         .rr > div {
@@ -653,9 +702,10 @@
                         border: 1px solid #38d;
 
                         .ll {
-                            width: 40%;
+                            width: 39.8%;
                             height: 100%;
                             float: left;
+                            border-right: 1px solid #38d;
 
                             #llb_ {
                                 width: 100%;
@@ -671,6 +721,31 @@
                             flex-direction: row;
                             flex-wrap: wrap;
                             justify-content: flex-start;
+                            position: relative;
+
+                            .horizontal {
+                                position: absolute;
+                                height: 1px;
+                                width: 100%;
+                                background: #3388dd;
+                                top: 0;
+                                left: 0;
+                                bottom: 0;
+                                right: 0;
+                                margin: auto;
+                            }
+
+                            .vertical {
+                                position: absolute;
+                                height: 100%;
+                                width: 1px;
+                                background: #3388dd;
+                                top: 0;
+                                left: 0;
+                                bottom: 0;
+                                right: 0;
+                                margin: auto;
+                            }
                         }
 
                         .rr > div {

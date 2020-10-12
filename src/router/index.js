@@ -47,11 +47,11 @@ const routes = [
         path: "/showECharts",
         name: "showECharts",
         component: showECharts
-    }, {
+    },/* {
         path: "/intAndOut",
         name: "intAndOut",
         component: intAndOut
-    },{
+    }*/,{
         path: "/unkonw",
         name: "unkonw",
         component: unkonw

@@ -28,16 +28,16 @@
                     </div>
                     <div class="ECharts">
                         <div class="EChartsItem">
-                            <div>
+                            <div class="item">
                                 <div id="gas_item_f"></div>
                             </div>
-                            <div>
+                            <div class="item">
                                 <div id="gas_item_s"></div>
                             </div>
-                            <div>
+                            <div class="item">
                                 <div id="gas_item_t"></div>
                             </div>
-                            <div>
+                            <div class="item">
                                 <div id="gas_item_fo"></div>
                             </div>
                         </div>
@@ -125,19 +125,19 @@
                     xAxis: [
                         {
                             type: "value",
-                            show:false,
+                            show: false,
                             axisTick: {
                                 //坐标轴刻度
                                 show: false
                             },
                             axisLine: {
-                                show:false,
+                                show: false,
                                 lineStyle: {
                                     color: "#fff"
                                 }
                             },
                             axisLabel: {
-                                show:true,
+                                show: true,
                                 textStyle: {
                                     color: "#FFF"
                                 }
@@ -164,7 +164,7 @@
                         }
                     ],
                     grid: {
-                        show:false,
+                        show: false,
                         width: "auto",
                         height: "auto",
                         left: "50px"
@@ -239,14 +239,33 @@
                         display: inline-block;
                         width: 40px;
                         text-align: center;
-                        color: white;
+                        color: #216db8;
                     }
+                }
+
+                .left /deep/ .el-date-editor > .el-input__inner {
+                    border-radius: 0;
+                    background-color: #191644;
+                    border: 1px solid #216db8;
+                    color: #3f69d2;
+                }
+
+                .left /deep/ .el-date-editor > .el-input__prefix {
+                    border-radius: 0;
+                    color: #3f69d2;
                 }
 
                 .right {
                     width: 40%;
                     height: 100%;
                     float: right;
+                }
+
+                .right /deep/ .el-button {
+                    border-radius: 0;
+                    background-color: #191644;
+                    border: 1px solid #216db8;
+                    color: #3f69d2;
                 }
             }
 
@@ -262,31 +281,32 @@
                     flex-wrap: nowrap;
                     justify-content: space-between;
                     align-items: center;
-                }
 
-                .EChartsItem > div {
-                    width: 100%;
-                    height: 260px;
-                }
+                    .item {
+                        width: 260px;
+                        height: 260px;
+                        border: 1px solid #38d;
 
-                .EChartsItem > div > #gas_item_f {
-                    width: 100%;
-                    height: 100%;
-                }
+                        #gas_item_f {
+                            width: 100%;
+                            height: 100%;
+                        }
 
-                .EChartsItem > div > #gas_item_s {
-                    width: 100%;
-                    height: 100%;
-                }
+                        #gas_item_s {
+                            width: 100%;
+                            height: 100%;
+                        }
 
-                .EChartsItem > div > #gas_item_t {
-                    width: 100%;
-                    height: 100%;
-                }
+                        #gas_item_t {
+                            width: 100%;
+                            height: 100%;
+                        }
 
-                .EChartsItem > div > #gas_item_fo {
-                    width: 100%;
-                    height: 100%;
+                        #gas_item_fo {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
                 }
             }
         }
