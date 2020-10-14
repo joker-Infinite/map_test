@@ -312,7 +312,7 @@
                         }
                     },
                     legend: {
-                        data: ["a", "b"],
+                        data: ["a", "b",'c','d'],
                         icon: "circle",
                         orient: 'horizontal',
                         textStyle: {
@@ -325,6 +325,7 @@
                     },
                     xAxis: [
                         {
+                            name: "first",
                             type: "category",
                             data: ["a", "b", "c", "d"],
                             axisPointer: {
@@ -339,7 +340,7 @@
                                     color: "#FFF"
                                 }
                             }
-                        }
+                        },
                     ],
                     yAxis: [
                         {
@@ -359,6 +360,7 @@
                             }
                         },
                         {
+                            name: "first",
                             type: "value",
                             min: 1,
                             max: 12,
@@ -400,6 +402,98 @@
                         },
                         {
                             name: 'b',
+                            type: "bar",
+                            data: [
+                                {
+                                    value: 30,
+                                    itemStyle: {
+                                        normal: {
+                                            barBorderRadius: [30, 30, 0, 0], //设置柱状图为圆角
+                                            position: "inside",
+                                            color: new this.$echarts.graphic.LinearGradient(
+                                                0,
+                                                0,
+                                                0,
+                                                1,
+                                                [
+                                                    {offset: 0, color: "#f94356"},
+                                                    {offset: 0.5, color: "#ff7e6e"},
+                                                    {offset: 1, color: "#ffb991"}
+                                                ]
+                                            )
+                                        }
+                                    }
+                                },
+                                {
+                                    value: 40,
+                                    itemStyle: {
+                                        normal: {
+                                            barBorderRadius: [30, 30, 0, 0], //设置柱状图为圆角
+                                            position: "inside",
+                                            color: new this.$echarts.graphic.LinearGradient(
+                                                0,
+                                                0,
+                                                0,
+                                                1,
+                                                [
+                                                    {offset: 0, color: "#a62ff6"},
+                                                    {offset: 0.5, color: "#bd56ff"},
+                                                    {offset: 1, color: "#af62ff"}
+                                                ]
+                                            )
+                                        }
+                                    }
+                                },
+                                {
+                                    value: 20,
+                                    itemStyle: {
+                                        normal: {
+                                            barBorderRadius: [30, 30, 0, 0], //设置柱状图为圆角
+                                            position: "inside",
+                                            color: new this.$echarts.graphic.LinearGradient(
+                                                0,
+                                                0,
+                                                0,
+                                                1,
+                                                [
+                                                    {offset: 0, color: "#eeb008"},
+                                                    {offset: 0.5, color: "#f9c931"},
+                                                    {offset: 1, color: "#eeb008"}
+                                                ]
+                                            )
+                                        }
+                                    }
+                                },
+                                {
+                                    value: 10,
+                                    itemStyle: {
+                                        normal: {
+                                            barBorderRadius: [30, 30, 0, 0], //设置柱状图为圆角
+                                            position: "inside",
+                                            color: new this.$echarts.graphic.LinearGradient(
+                                                0,
+                                                0,
+                                                0,
+                                                1,
+                                                [
+                                                    {offset: 0, color: "#f94356"},
+                                                    {offset: 0.5, color: "#ff7e6e"},
+                                                    {offset: 1, color: "#ffb991"}
+                                                ]
+                                            )
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            name: 'c',
+                            type: "line",
+                            yAxisIndex: 1,
+                            data: [5, 4, 5, 6]
+                        },
+                        {
+                            name: 'd',
                             type: "bar",
                             data: [
                                 {
@@ -792,7 +886,7 @@
                 height: 10%;
 
                 .left {
-                    width: 60%;
+                    width: 40%;
                     height: 100%;
                     float: left;
 
@@ -819,7 +913,7 @@
                 .right {
                     width: 40%;
                     height: 100%;
-                    float: right;
+                    float: left;
                 }
 
                 .right /deep/ .el-button {

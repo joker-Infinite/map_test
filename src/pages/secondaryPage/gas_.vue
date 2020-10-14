@@ -207,31 +207,31 @@
 
 <style scoped lang="less">
     .con {
-        width: 1200px;
-        height: 650px;
+        width: 1920px;
+        height: 1080px;
         background: url("../../assets/img/bg.jpg") no-repeat;
-        background-size: 100%;
+        background-size: cover;
         margin: auto;
 
         .background_img {
-            width: 1200px;
-            height: 650px;
-
-            background: url("../../assets/img/box1.png") no-repeat;
+            width: 1720px;
+            height: 880px;
+            padding: 100px;
+            background: url("../../assets/img/box.png") no-repeat;
             background-size: 100%;
         }
 
         .ECharts_box {
-            width: 1100px;
-            height: 450px;
-            padding: 100px 50px 50px;
+            width: 100%;
+            height: 100%;
 
             .time_title {
                 width: 100%;
-                height: 20%;
+                height: 15%;
+                margin-top: 5%;
 
                 .left {
-                    width: 60%;
+                    width: 40%;
                     height: 100%;
                     float: left;
 
@@ -258,7 +258,7 @@
                 .right {
                     width: 40%;
                     height: 100%;
-                    float: right;
+                    float: left;
                 }
 
                 .right /deep/ .el-button {
@@ -271,7 +271,7 @@
 
             .ECharts {
                 width: 100%;
-                height: 80%;
+                height: 75%;
 
                 .EChartsItem {
                     width: 100%;
@@ -283,8 +283,8 @@
                     align-items: center;
 
                     .item {
-                        width: 260px;
-                        height: 260px;
+                        width: 24%;
+                        height: 70%;
                         border: 1px solid #38d;
 
                         #gas_item_f {

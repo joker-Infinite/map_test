@@ -547,30 +547,32 @@
 
 <style scoped lang="less">
     .con {
-        width: 1200px;
-        height: 800px;
+        width: 1920px;
+        height: 1080px;
         background: url("../../assets/img/bg.jpg") no-repeat;
         background-size: cover;
         margin: auto;
 
         .background_img {
-            width: 1200px;
-            height: 650px;
+            width: 1920px;
+            height: 1080px;
             background: url("../../assets/img/head.png") no-repeat;
             background-size: 100%;
         }
 
         .ECharts_box {
-            width: 1000px;
-            height: 650px;
+            width: 1720px;
+            height: 930px;
             padding: 100px 100px 50px;
+            overflow: hidden;
 
             .time_title {
                 width: 100%;
-                height: 15%;
+                height: 10%;
+                margin-top: 3%;
 
                 .left {
-                    width: 60%;
+                    width: 40%;
                     height: 100%;
                     float: left;
 
@@ -597,7 +599,7 @@
                 .right {
                     width: 40%;
                     height: 100%;
-                    float: right;
+                    float: left;
                 }
 
                 .right /deep/ .el-button {

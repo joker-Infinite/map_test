@@ -29,13 +29,6 @@
                     <div class="ECharts">
                         <div class="ECharts_left">
                             <div class="con_bar">
-                                <div class="title_ECharts">
-                                    <p>
-                                        <span>四大板块现金流 >></span>
-                                        <span class="dot"><i style="background: #3ea2ff"></i> 收入<i
-                                                style="background: #d285fd"></i> 流出</span>
-                                    </p>
-                                </div>
                                 <div class="con_bars">
                                     <div id="ECharts_gas_i1"></div>
                                 </div>
@@ -43,20 +36,8 @@
                         </div>
                         <div class="ECharts_right">
                             <div class="con_bar">
-                                <div class="title_ECharts">
-                                    <p>
-                                        <span>四大板块现金流 >></span>
-                                    </p>
-                                </div>
                                 <div class="con_bars">
                                     <div id="ECharts_gas_i2"></div>
-                                </div>
-                                <div class="bottom_bar">
-                                    <div style="height: 20px;color: white" v-for="i in 7">
-                                        <i style="background: white;width: 0.625em;
-                            height: 0.625em;border-radius: 100%;display: inline-block"></i>
-                                        第{{i}}项
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -95,10 +76,40 @@
                     document.getElementById("ECharts_gas_i1")
                 );
                 let option = {
-                    // title: {
-                    //     text: '无x，y轴线及刻度线',
-                    //     subtext: '柱形图圆角'
-                    // },
+                    title: {
+                        text: '  {a|     完成百分比}',
+                        textStyle: {
+                            fontFamily: '幼圆',
+                            rich: {
+                                a: {
+                                    color: '#FFF',
+                                    fontSize: '20',
+                                    height: 20,
+                                    width: 20,
+                                    backgroundColor: {
+                                        image: require('../assets/img/icon2.png')
+                                    }
+                                },
+                                b: {
+                                    color: '#FFF',
+                                    fontSize: '15',
+                                    height: 15,
+                                    width: 15,
+                                }
+                            }
+                        }
+                    },
+                    legend: {
+                        data: ['数量', '平均温度'],
+                        icon: "circle",
+                        textStyle: {
+                            color: '#FFF'
+                        },
+                        itemWidth: 20,
+                        itemHeight: 20,
+                        top: '30',
+                        right: 20
+                    },
                     barWidth: 10, //设置柱状图的粗细
                     xAxis: [
                         {
@@ -215,12 +226,10 @@
                     grid: {
                         width: "auto",
                         height: "auto",
-                        left: "35px",
-                        bottom: "30px"
-                        // left:'30px'
                     },
                     series: [
                         {
+                            name: '数量',
                             data: [120, 200, 150, 80, 70, 110, 130],
                             type: "bar",
                             color: "rgba(143,73,220,0.63)",
@@ -246,6 +255,44 @@
                     document.getElementById("ECharts_gas_i2")
                 );
                 let option = {
+                    title: {
+                        text: '  {a|     完成百分比}',
+                        textStyle: {
+                            fontFamily: '幼圆',
+                            rich: {
+                                a: {
+                                    color: '#FFF',
+                                    fontSize: '20',
+                                    height: 20,
+                                    width: 20,
+                                    backgroundColor: {
+                                        image: require('../assets/img/icon2.png')
+                                    }
+                                },
+                                b: {
+                                    color: '#FFF',
+                                    fontSize: '15',
+                                    height: 15,
+                                    width: 15,
+                                }
+                            }
+                        }
+                    },
+                    legend: {
+                        data: ['直接访问', '邮件营销', '联盟广告', '视频广告', 'ccc', 'vvv', 'bbb'],
+                        icon: "circle",
+                        itemGap:50,
+                        textStyle: {
+                            color: '#FFF'
+                        },
+                        itemWidth: 20,
+                        itemHeight: 20,
+                        bottom: 20
+                    },
+                    grid: {
+                        width: 'auto',
+                        height: 'auto',
+                    },
                     series: [
                         {
                             type: "pie",
@@ -340,17 +387,17 @@
 
 <style scoped lang="less">
     .con {
-        width: 1200px;
-        height: 700px;
+        width: 1920px;
+        height: 1080px;
         background: url("../assets/img/bg.jpg") no-repeat;
-        background-size: 100%;
+        background-size: cover;
         margin: auto;
 
         .background_img {
-            width: 1000px;
-            height: 500px;
+            width: 1720px;
+            height: 880px;
             padding: 100px;
-            background: url("../assets/img/box1.png") no-repeat;
+            background: url("../assets/img/box.png") no-repeat;
             background-size: 100%;
         }
 
@@ -360,10 +407,11 @@
 
             .time_title {
                 width: 100%;
-                height: 20%;
+                height: 15%;
+                margin-top: 5%;
 
                 .left {
-                    width: 60%;
+                    width: 40%;
                     height: 100%;
                     float: left;
 
@@ -390,7 +438,7 @@
                 .right {
                     width: 40%;
                     height: 100%;
-                    float: right;
+                    float: left;
                 }
 
                 .right /deep/ .el-button {
@@ -411,25 +459,24 @@
                     float: left;
 
                     .con_bar {
-                        width: 98%;
+                        width: 95%;
                         height: 100%;
                         position: relative;
                         background: url("../assets/img/box2.png") no-repeat;
                         background-size: 100%;
-                        overflow: hidden;
                         /*border: 1px solid #38d;*/
                         /*border-top: none;*/
                         /*box-shadow: 0 0 2px #38d inset;*/
 
                         .con_bars {
                             height: 85%;
-                            width: 95%;
-                            margin-top: 5%;
-                            margin-left: 5%;
+                            width: 100%;
+                            overflow: hidden;
 
                             #ECharts_gas_i1 {
                                 width: 100%;
                                 height: 95%;
+                                margin-top: 5%;
                             }
                         }
 
@@ -486,7 +533,7 @@
                     float: right;
 
                     .con_bar {
-                        width: 98%;
+                        width: 95%;
                         height: 100%;
                         position: relative;
                         background: url("../assets/img/box2.png") no-repeat;
@@ -498,13 +545,13 @@
 
                         .con_bars {
                             height: 85%;
-                            width: 95%;
-                            margin-top: 5%;
-                            margin-left: 5%;
+                            width: 100%;
+                            overflow: hidden;
 
                             #ECharts_gas_i2 {
                                 width: 100%;
                                 height: 95%;
+                                margin-top: 5%;
                             }
                         }
 

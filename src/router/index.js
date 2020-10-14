@@ -11,6 +11,9 @@ import gas_ from "../pages/secondaryPage/gas_";
 import unkonw from "../pages/secondaryPage/unkonw";
 import showBottomECharts from "../pages/common/showBottomECharts";
 import gasDatas from "../pages/secondaryPage/gasDatas";
+import petrolStation from "../pages/petrolStation";
+import profit from "../pages/profit";
+import TaskCompletionRate from "../pages/TaskCompletionRate";
 
 Vue.use(VueRouter);
 
@@ -68,6 +71,21 @@ const routes = [
         path: "/gasDatas",
         name: "gasDatas",
         component: gasDatas
+    },
+    {
+        path: "/petrolStation",
+        name: "petrolStation",
+        component: petrolStation
+    },
+    {
+        path: "/profit",
+        name: "profit",
+        component: profit
+    },
+    {
+        path: "/TaskCompletionRate",
+        name: "TaskCompletionRate",
+        component: TaskCompletionRate
     },
 ];
 

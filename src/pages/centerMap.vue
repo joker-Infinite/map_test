@@ -57,7 +57,7 @@ export default {
           address: "民主一街"
         }
       ],
-      zoom: 15,
+      zoom: 10,
       center: [114.286298, 30.5855],
       expandZoomRange: true,
       markers: [],
