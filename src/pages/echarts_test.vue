@@ -1,12 +1,12 @@
 <template>
     <div id="EChartsBox">
-        <div class="box" id="ECharts_01"></div>
-        <div class="box" id="ECharts_02"></div>
-        <div class="box" id="ECharts_03"></div>
-        <div class="box" id="ECharts_04"></div>
-        <div class="box" id="ECharts_05"></div>
+        <div class="box" id="ECharts_01" v-show="false"></div>
+        <div class="box" id="ECharts_02" v-show="false"></div>
+        <div class="box" id="ECharts_03" v-show="false"></div>
+        <div class="box" id="ECharts_04" v-show="false"></div>
+        <div class="box" id="ECharts_05" v-show="false"></div>
         <div class="box" id="ECharts_06"></div>
-        <div class="box" id="ECharts_07"></div>
+        <div class="box" id="ECharts_07" v-show="false"></div>
     </div>
 </template>
 
@@ -390,7 +390,10 @@
                 );
 
                 let option = {
-                    barWidth: 5,
+                    /* title: {
+                         text: '营收',
+                         left: 'center'
+                     },*/
                     legend: {//图例组件
                         x: 'center',
                         y: 'bottom',
@@ -400,19 +403,20 @@
                             color: "#333",
                         },
                         itemGap: 20,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
-                        data: ['业务办理量', '业务办理'],//图例的数据数组。
+                        data: ['营收', '同比增涨率'],//图例的数据数组。
                         inactiveColor: '#ccc',//图例关闭时的颜色。
                     },
                     grid: {//直角坐标系内绘图网格
-                        bottom: '12%',//grid 组件离容器下侧的距离。
-                        left: '1%',
-                        right: '10%',
+                        bottom: '5%',//grid 组件离容器下侧的距离。
+                        left: '5%',
+                        right: '5%',
                         containLabel: true//grid 区域是否包含坐标轴的刻度标签。
                     },
                     xAxis: [
                         {
+                            // name: "年份",
                             type: 'category',
-                            data: ['a', 'b', 'c', 'd'],
+                            data: ['2015年', '2016年', '2017年', '2018年', "2019年"],
                             axisPointer: {
                                 type: 'shadow'
                             },
@@ -428,6 +432,7 @@
                     ],
                     yAxis: [
                         {
+                            name: '金额（亿元）',
                             type: 'value',
                             show: true,
                             splitNumber: 10,//坐标轴的分割段数
@@ -441,8 +446,9 @@
                         },
                         {
                             type: 'value',
-                            min: '',//最小坐标
-                            max: '',//最大坐标
+                            min: '-100',//最小坐标
+                            max: '2000',//最大坐标
+                            // interval:1,
                             axisLabel: {
                                 fontSize: 14,
                                 color: "#333",
@@ -454,109 +460,126 @@
                         }
                     ],
                     series: [
-                        {
-                            name: '业务办理量',
-                            type: 'bar',
-                            data: [2, 3, 4, 5],
-                            barWidth: '15',
-                            itemStyle: {
+                        /* {
+                             name: '营收',
+                             type: 'bar',
+                             data: [1.35, 22.53, 34.67, 41.62, 51.01],
+                             barWidth: '60',
+                             color: "#38d", //条形内容背景颜色
+                             itemStyle: {
+                                 normal: {
+                                     label: {
+                                         show: true,
+                                         fontSize: '16px'
+                                     }
+                                 }
+                             }
+
+                         },
+                         {
+                             name: '同比增涨率',
+                             type: 'line',
+                             yAxisIndex: 1,    //这里要设置哪个y轴，默认是最左边的是0，然后1，2顺序来。
+                             data: [, 1568.89, 53.88, 20.05, 22.56],
+                             symbolSize: 10,
+                             color: '#DD6D2D',
+                             itemStyle: {
+                                 normal: {
+                                     label: {
+                                         show: true,
+                                         fontSize: '16px',
+                                         formatter: v => {
+                                             if(v.data<0){
+                                                 return "<span style='color: red'>v.data + '%'</span>"
+                                             }
+                                             return v.data + '%'
+                                         }
+                                     }
+                                 },
+
+                             }
+                         },*/
+                        /*  {
+                              name: '利润',
+                              type: 'bar',
+                              data: [0.15, 0.39, 1.41, 2.03, 2.06],
+                               barWidth: '60',
+                              color: "#38d" //条形内容背景颜色
+                          },
+                          {
+                              name: '同比增涨率',
+                              type: 'line',
+                              yAxisIndex: 1,    //这里要设置哪个y轴，默认是最左边的是0，然后1，2顺序来。
+                              data: [, 160, 261.54, 43.97, 1.48],
+                               symbolSize: 10,
+                              color:'#DD6D2D',
+                              itemStyle: {
                                 normal: {
-                                    color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{//图例使用渐变色
-                                        offset: 0,
-                                        color: 'rgb(0, 102, 255)'
-                                    }, {
-                                        offset: 1,
-                                        color: 'rgb(0, 153, 255)'
-                                    }]),
                                     label: {
                                         show: true,
-                                        position: 'top',
-                                        textStyle: {
-                                            fontSize: '15',
-                                            fontWeight: 'bold',
-                                            color: 'rgb(51, 51, 51)',
-                                        }
-                                    },
-                                },
-                            },
-                        },
-                        {
-                            name: '业务办理量',
-                            type: 'line',
-                            yAxisIndex: 1,    //这里要设置哪个y轴，默认是最左边的是0，然后1，2顺序来。
-                            data: [0.3, 0.4, 0.5, 0.6],
-                            symbolSize: 10,
-                            itemStyle: {
-                                normal: {
-                                    color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                        offset: 0,
-                                        color: 'rgb(255, 204, 102)'
-                                    }, {
-                                        offset: 1,
-                                        color: 'rgb(255, 153, 51)'
-                                    }]),
-                                    label: {
-                                        show: true,
-                                        position: 'top',
-                                        textStyle: {
-                                            fontSize: '14',
-                                            color: 'rgb(255, 156, 54)',
-                                        }
-                                    }
-                                },
-                            },
-                        },
-                        {
-                            name: '业务办理',
-                            type: 'bar',
-                            data: [4, 2, 3, 6],
-                            barWidth: '15',
-                            itemStyle: {
-                                normal: {
-                                    color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{//图例使用渐变色
-                                        offset: 0,
-                                        color: 'rgb(0, 102, 255)'
-                                    }, {
-                                        offset: 1,
-                                        color: 'rgb(0, 153, 255)'
-                                    }]),
-                                    label: {
-                                        show: true,
-                                        position: 'top',
-                                        textStyle: {
-                                            fontSize: '15',
-                                            fontWeight: 'bold',
-                                            color: 'rgb(51, 51, 51)',
-                                        }
-                                    },
-                                },
-                            },
-                        },
-                        {
-                            name: '业务办理',
-                            type: 'line',
-                            yAxisIndex: 1,    //这里要设置哪个y轴，默认是最左边的是0，然后1，2顺序来。
-                            data: [0.4, 0.3, 0.2, 0.5],
-                            symbolSize: 10,
-                            itemStyle: {
-                                normal: {
-                                    color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                        offset: 0,
-                                        color: 'rgb(255, 204, 102)'
-                                    }, {
-                                        offset: 1,
-                                        color: 'rgb(255, 153, 51)'
-                                    }]),
-                                    label: {
-                                        show: true,
-                                        position: 'top',
-                                        textStyle: {
-                                            fontSize: '14',
-                                            color: 'rgb(255, 156, 54)',
+                                        fontSize: '16px',
+                                        formatter: v => {
+                                            if(v.data<0){
+                                                return "<span style='color: red'>v.data + '%'</span>"
+                                            }
+                                            return v.data + '%'
                                         }
                                     }
                                 },
-                            },
+
+                            }
+                          },*/
+                        {
+                            name: '营收',
+                            type: 'bar',
+                            data: [1.35, 22.53, 34.67, 41.62, 51.01],
+                            barWidth: '80',
+                            color: "#38d",//条形内容背景颜色
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        show: true,
+                                        fontSize: 20,
+                                        position: 'top'
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            name: '同比增涨率',
+                            type: 'line',
+                            yAxisIndex: 1,    //这里要设置哪个y轴，默认是最左边的是0，然后1，2顺序来。
+                            data: [, 1568.89, 53.88, 20.05, 22.56],
+                            symbolSize: 10,
+                            color: '#DD6D2D',
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        show: true,
+                                        formatter: v => {
+                                            if (v.data < 0) {
+                                                return '{b|' + v.data + '%' + '}'
+                                            }
+                                            if (v.data > 0) {
+                                                return '{a|' + v.data + '%' + '}'
+                                            }
+
+                                        },
+                                        rich: {
+                                            a: {
+                                                color: '#DD6D2D',
+                                                fontSize: 20,
+                                                fontWeight: 700
+                                            },
+                                            b: {
+                                                color: '#DD0608',
+                                                fontSize: 20,
+                                                fontWeight: 700
+                                            }
+                                        }
+                                    }
+                                },
+                            }
                         },
                     ]
                 }
@@ -739,12 +762,12 @@
         overflow-y: scroll;
 
         .box {
-            width: 32%;
+            width: 50%;
             height: 500px;
             background: white;
             margin: 10px 0;
             padding: 5px;
-            border-radius: 5px;
+            /*border-radius: 5px;*/
         }
 
         #ECharts_07 {
